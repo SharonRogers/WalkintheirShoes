@@ -1,0 +1,17 @@
+<video src="../Santa_Monica_Art_02.mp4" id="bgvid" autoplay></video>
+
+<div>
+	
+	<div ng-repeat="story in scenarios" class="storyBar">
+	<button ng-click="getSelected($index)">
+
+	<h2>{{story.title}}</h2>
+	<p>{{story.scenario}}</p>
+	<p>{{story.imageId}}</p>
+	
+</div>
+
+<div ui-view></div>
+
+</div>
+	

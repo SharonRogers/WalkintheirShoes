@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Walk in their Shoes</title>
+	<link rel="stylesheet" href="styles/stylesheet.css">
+</head>
+<body>
+
+<div class="navBar">
+	<ul class="barMenu">
+		<li><a ui-sref="home" ui-sref-active="active">Home/Sign In</a></li>
+		<li><a ui-sref="about" ui-sref-active="active">Why Care?</a></li>
+		<li><a ui-sref="scenarios" ui-sref-active="active">See Through Their Eyes.</a></li>
+		<li><a ui-sref="userStory" ui-sref-active="active">Put Yourself in Their Shoes.</a></li>
+		<li><a ui-sref="test" ui-sref-active="active">How Much Do You Care?</a></li>
+		<li><a ui-sref="share" ui-sref-active="active">Share Your Story.</a></li>
+		
+	</ul>
+</div>
+
+<div ui-view></div>
+
+<!-- Angular -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+
+<!-- Scripts -->
+<script src="app.js"></script>
+<script src="scripts/controllers/mainCtrl.js"></script>
+<script src="scripts/controllers/scenariosCtrl.js"></script>
+<script src="scripts/controllers/userStoriesCtrl.js"></script>
+<script src="scripts/controllers/personalStoryCtrl.js"></script>
+<script src="scripts/controllers/selectedCtrl.js"></script>
+<script src="scripts/controllers/shareCtrl.js"></script>
+<script src="scripts/controllers/testCtrl.js"></script>
+<script src="scripts/services/scenariosService.js"></script>
+<script src="scripts/services/userMyStoryService.js"></script>
+
+</body>
+</html>

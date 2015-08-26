@@ -1,0 +1,26 @@
+{
+  "name": "walkintheirshoes",
+  "version": "1.0.0",
+  "description": "app to develop empathy",
+  "main": "gitignore.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SharonRogers/WalkintheirShoes.git"
+  },
+  "author": "sharon rogers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SharonRogers/WalkintheirShoes/issues"
+  },
+  "homepage": "https://github.com/SharonRogers/WalkintheirShoes#readme",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.3",
+    "mongoose-unique-validator": "^0.4.1"
+  }
+}
