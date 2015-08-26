@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 //////////////Controllers
 var scenariosCtrl = require('./controllers/scenariosCtrl');
 var userStoriesCtrl = require('./controllers/userStoriesCtrl');
+var testCtrl = require('./controllers/testCtrl');
 
 
 ///////////////////Express
@@ -20,19 +21,24 @@ app.use(express.static('./public'));
 //////connects to front end
 
 ////////////////////Endpoints
+
+// ********FULL SAMPLE STORIES ENDPOINTS FOR SCENARIOS VIEW*********
 app.post ('/api/Scenarios', scenariosCtrl.create);
 app.get ('/api/Scenarios', scenariosCtrl.read);
 app.put ('/api/Scenarios/:id', scenariosCtrl.update);
 app.delete ('/api/Scenarios/:id', scenariosCtrl.remove);
 
 
-
+// ***********USER FRAMEWORK STORIES TO BE INTEGRATED AND USERSTORIES VIEW****
 app.post ('/api/userStory', userStoriesCtrl.create);
 app.get ('/api/userStory', userStoriesCtrl.read);
 app.put ('/api/userStory/:id', userStoriesCtrl.update);
 app.delete ('/api/userStory/:id', userStoriesCtrl.remove);
 
 
+// ***********TEST QUESTIONS FOR TEST VIEW***********
+app.post ('/api/test', testCtrl.create);
+app.get ('/api/test', testCtrl.read);
 
 
 ////////////////////Connections

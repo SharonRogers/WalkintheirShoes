@@ -69,8 +69,9 @@ video {
 
 .title {
 	color: white;
-	font-size: 50px;
+	font-size: 100px;
 	text-align: center;
+	vertical-align: center;
 }
 
 /*Styling for Scenarios and SelectedStory*/
