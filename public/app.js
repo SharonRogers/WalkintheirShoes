@@ -13,6 +13,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		controller: 'mainCtrl'
 	})
 
+	.state('home.signup', {
+		url: '/signup',
+		templateUrl: 'views/signUp.html',
+		controller: 'loginCtrl'
+	})
+
 	.state('about', {
 		url: '/about',
 		templateUrl: 'views/about.html',
@@ -26,7 +32,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	})
 
 	.state('scenarios.selected', {
-		url: '/seethroughtheireyes/:selected',
+		url: '/:selected',
 		templateUrl: 'views/selected.html',
 		controller: 'scenariosCtrl'
 	})

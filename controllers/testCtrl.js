@@ -11,24 +11,9 @@ module.exports = {
 			if (err) {
 				return res.status(500).send(err);
 			} else {
-			res.send ({message: "New Test Added", data: newTest})
+			res.send (newTest)
 			}
 		});
-
-	// 	console.log(req.body)
-
-	// 	newTest.question = req.body.question;
-	// 	newTest.answerA = req.body.answerA;
-	// 	newTest.answerB = req.body.answerB;
-	// 	newTest.answerC = req.body.answerC;
-	// 	newTest.answerD = req.body.answerD;
-
-	// newTest.save(function(err, res) {
-	// 	if (err) return res.status(500).send(err);
-	// 	else res.send(newTest);
-	// 	});
-	
-
 	},
 
 	// *********METHOD IS CLOSED***************
@@ -40,9 +25,35 @@ module.exports = {
 			if (err) return res.status(500).send(err);
 			else res.send(result);
 		});
-	}
+	},
 
 	// ***********METHOD IS CLOSED****************
+
+// **********THIS METHOD IS TO PULL OUT AN INDIVIDUAL DOCUMENT AND UPDATE A PROPERTY OF IT***********
+
+	update: function(req, res) {
+		Test.findByIdAndUpdate(req.params.id, req.body, function(err,result) {
+			if (err) return res.status(500).send(err);
+			else res.send(result);
+		});
+	},
+
+	// **********METHOD IS CLOSED***************
+
+// ********THIS METHOD IS TO PULL OUT AN INDIVIDUAL DOCUMENT AND DELETE IT*****
+
+	remove: function(req, res) {
+		Test.findByIdAndRemove(req.params.id, req.body, function(err, result) {
+			if (err) return res.status(500).send(err);
+			else res.send(result);
+		});
+	}
+
+	// ***********METHOD IS CLOSED***********
 };
+
+// ************MODULE EXPORT IS CLOSED***************
+
+
 
 

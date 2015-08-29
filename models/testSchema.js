@@ -14,7 +14,8 @@ var testSchema = new mongoose.Schema({
 			answerA: {type: Boolean},
 			answerB: {type: Boolean},
 			answerC: {type: Boolean},
-			answerD: {type: Boolean}
+			answerD: {type: Boolean},
+			answerE: {type: Boolean}
 		}
 	]
 	// ******CLOSE ONE TO MANY ARRAY*********

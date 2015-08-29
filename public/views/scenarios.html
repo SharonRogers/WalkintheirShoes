@@ -1,17 +1,21 @@
 <video src="assets/graphics/Santa_Monica_Art_02.mp4" id="bgvid" autoplay></video>
 
-<div>
+<div class="scenarioContainer">
 	
-	<div ng-repeat="story in scenarios" class="storyBar">
-	<button ng-click="getSelected($index)">
-
-	<h2>{{story.title}}</h2>
-	<p>{{story.scenario}}</p>
-	<img src={{story.imageId}}>
+	<div ng-repeat="story in scenarios" class="storyBar aside">
+			<button ng-click="getSelected($index)">
+				<h2>{{story.title}}</h2>
+				<p>{{story.scenario}}</p>
+				<img src={{story.imageId}}>
 	
-</div>
+	</div>
 
-<div ui-view></div>
+	<article ui-view></article>
+
+	<div ng-repeat="story in scenarios" class="eyeBar aside">
+		<img src={{story.imageId}}>
+	</div>
+
 
 </div>
 	

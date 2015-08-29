@@ -4,21 +4,56 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var mongoose = require('mongoose');
+var session = require('express-session');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+ ///////////////////Express
+var app = express();
 
 //////////////Controllers
 var scenariosCtrl = require('./controllers/scenariosCtrl');
 var userStoriesCtrl = require('./controllers/userStoriesCtrl');
 var testCtrl = require('./controllers/testCtrl');
+var loginCtrl = require('./controllers/loginCtrl');
+var User = require('./models/userSchema');
 
-
-///////////////////Express
-var app = express();
 
 ///////////////////Middleware
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static('./public'));
 //////connects to front end
+
+// // ************REQUIRED FOR PASSPORT**************
+app.use(session({ secret: 'thesecretisasecret'}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+// integrating passport-local with username and password
+passport.use(new LocalStrategy({
+	username: 'username',
+	password: 'password'
+	}, function(username, password, done) {
+		
+		User.findOne({ username: username }).exec().then(function (user) {
+			console.log(user);
+			if (!user) { return done(null, false); }
+			if (user.password != password) {return done(null, false); }
+				return done(null, user);
+		});
+	}
+));
+
+passport.serializeUser(function(user, done) {
+	done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+	done(null, obj);
+});
+
 
 ////////////////////Endpoints
 
@@ -39,6 +74,22 @@ app.delete ('/api/userStory/:id', userStoriesCtrl.remove);
 // ***********TEST QUESTIONS FOR TEST VIEW***********
 app.post ('/api/test', testCtrl.create);
 app.get ('/api/test', testCtrl.read);
+app.put ('/api/test/:id', testCtrl.update);
+app.delete ('/api/test/:id', testCtrl.remove);
+
+// **************SIGNUP FOR USERS************
+app.post ('/api/signup', loginCtrl.create);
+app.get ('/api/signup', loginCtrl.read);
+app.put ('/api/signup/:id', loginCtrl.update);
+app.delete ('/api/signup/:id', loginCtrl.remove);
+
+
+// // authenticate requests
+// app.post('/login',
+// 	passport.authenticate('local', {failureRedirect: '/login' }),
+// 	function(req, res) {
+// 		res.json(req.user);
+// 	});
 
 
 ////////////////////Connections

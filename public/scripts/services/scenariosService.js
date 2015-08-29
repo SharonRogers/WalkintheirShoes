@@ -18,6 +18,10 @@ app.service('scenariosService', function($http, $q) {
 
 	var selected = '';
 	this.setSelected = function(newSelected) {
+		var deferred = $q.defer()
+		console.log('in the service')
 		selected = newSelected;
+		deferred.resolve(selected)
+		return deferred.promise
 	}
 });

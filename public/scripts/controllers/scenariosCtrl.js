@@ -1,4 +1,4 @@
-app.controller('scenariosCtrl', function($scope, $location, scenariosService) {
+app.controller('scenariosCtrl', function($scope, $stateParams, $state, scenariosService) {
 	
 
 	$scope.getScenarios = function() {
@@ -10,8 +10,13 @@ app.controller('scenariosCtrl', function($scope, $location, scenariosService) {
 	};
 	$scope.getScenarios();
 
-
-	// $scope.getSelected = function(index) {
-	// 	scenariosService.setSelected($scope.scenarios[index]);
-	// };
+	$scope.getSelected = function(index) {
+		scenariosService.setSelected($scope.scenarios[index]).then(function(response){
+			console.log(response)
+			$scope.scenario = response;
+			$state.go('scenarios.selected', {selected: $scope.scenario.title})
+		})
+	
+			
+	}; 
 })
