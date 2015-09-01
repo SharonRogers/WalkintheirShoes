@@ -28,7 +28,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	.state('user', {
 		url: '/user',
 		templateUrl: 'views/user.html',
-		controller: 'loginCtrl'
+		controller: 'userCtrl'
 	})
 
 	.state('about', {

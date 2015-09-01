@@ -19,40 +19,30 @@ app.controller('loginCtrl', function($scope, $state, userService) {
 	$scope.getUsers();
 
 	$scope.addUser = function() {
+		console.log("addUser is running");
 		var userInfo = {
 			email: $scope.username,
 			password: $scope.password,
 			firstname: $scope.firstName
 		}
 		userService.addUser(userInfo).then(function(results) {
-			console.log("addUser is running");
-			console.log("userInfo", results)
+			console.log("userInfo in ctrl: ", results)
 		})	
 	};
 
 	$scope.verifyUser = function() {
+		console.log("verify user is running");
 		var userInfo = {
 			email: $scope.username,
-			password: $scope.password,
-
+			password: $scope.password
 		}
+
 		userService.verifyUser(userInfo).then(function(results) {
-			console.log("verify user is running");
+			console.log(".then from verifyUser:", results);
+			$scope.userObj = results;
+			console.log($scope.userObj)
 			$state.go('user');
 		})
 	};
 
-
-// 	var helpers = {};
-
-// 	helpers.auth = function(req, res) {
-// 	var map = {};
-// 	map.isAuthenticated = req.isauthenticated();
-// 	map.user = req.user;
-// 	return map;
-// }
-
-// 	app.dynamicHelpers(helpers);
-
-
-})
+});

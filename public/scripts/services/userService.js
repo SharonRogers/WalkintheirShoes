@@ -1,4 +1,7 @@
 app.service('userService', function($http, $q) {
+	
+	var userObj;
+
 	this.getUsers = function() {
 		var deferred = $q.defer();
 
@@ -9,6 +12,7 @@ app.service('userService', function($http, $q) {
 			console.log("This is GET call", data);
 			var results = data.data;
 			console.log(results);
+			deferred.resolve(results);
 		}).catch(function(err) {
 			console.log(err)
 		})
@@ -27,6 +31,7 @@ app.service('userService', function($http, $q) {
 			console.log("This is POST call for add user", data);
 			var results = data.data;
 			console.log(results);
+			deferred.resolve(results)
 		}).catch(function(err) {
 			console.log(err)
 		})
@@ -41,9 +46,9 @@ app.service('userService', function($http, $q) {
 			url: '/api/login',
 			data: user
 		}).then(function(data) {
-			console.log(data.data);
-			var results = data.data;
-			deferred.resolve(results);
+			console.log(data);
+			userObj = data.data;
+			deferred.resolve(userObj);
 		})
 		return deferred.promise;
 	};
@@ -68,6 +73,10 @@ app.service('userService', function($http, $q) {
 			var results = data.data;
 		})
 		return deferred.promise;
+	};
+
+	this.getUser = function() {
+		return userObj;
 	};
 	
 

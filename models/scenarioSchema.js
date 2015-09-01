@@ -11,9 +11,8 @@ var scenarioSchema = new mongoose.Schema({
 	scenario: {type: String, required: true},
 	resolution: {type: String},
 	imageId: {type: String},
-	eyeId: {type: String}
-	// _user: {type: Number, ref: 'User'},
-	// followers: [{ type: Number, ref: 'User'}]
+	eyeId: {type: String},
+	followers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
 
 });
 

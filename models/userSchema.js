@@ -10,9 +10,9 @@ var userSchema = new mongoose.Schema({
 	favFamily: {type: String},
 	favFood: {type: String},
 	favFear: {type: String},
-	favPlace: {type: String}
-	// stories:[{
-	// 	type: Schema.Types.ObjectId, ref: 'Scenario' }]
+	favPlace: {type: String},
+	stories:[{
+		type: mongoose.Schema.Types.ObjectId, ref: 'Scenario' }]
 });
 
 userSchema.methods.generateHash = function(password) {

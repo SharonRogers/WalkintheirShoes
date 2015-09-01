@@ -153,6 +153,10 @@ a {
 	background-color: transparent; 
 }
 
+.userwelcome {
+	font-size: 100px;
+}
+
 /*Styling for Scenarios and SelectedStory*/
 
 .scenarioContainer {

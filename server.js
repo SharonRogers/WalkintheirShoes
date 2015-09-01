@@ -26,6 +26,10 @@ app.use(cors());
 app.use(express.static('./public'));
 //////connects to front end
 
+// *********Expands Server Capacity
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+
 // // ************REQUIRED FOR PASSPORT**************
 app.use(session({ secret: 'thesecretisasecret'}));
 app.use(passport.initialize());
@@ -93,19 +97,26 @@ app.put ('/api/signup/:id', loginCtrl.update);
 app.delete ('/api/signup/:id', loginCtrl.remove);
 
 
+app.post('/api/newimage', ScenariosCtrl.saveImage);
+
+
 app.post ('/api/login', passport.authenticate('login', {
 	failureRedirect : '/#/home',
-	failureFlash : true
 }),
 	function(req, res) {
+		console.log('$$$$$$$$$$$$$$$$$$ req.body for login', req.body);
+		console.log('$$$$$$$$$$$$$$$$$$ req.user for login', req.user);
 		res.status(200).json(req.user)
 		}
 );
 
 app.get('/logout', function(req, res) {
 	req.logout();
-	res.redirect('/');
+	res.redirect('/#/home');
 });
+
+app.put('/api/addFollower/:scenarioId', scenariosCtrl.addFollower);
+
 
 // ********ADD ABILITY FOR SHARE VIEW*********
 app.post ('/api/shareyourstory', scenariosCtrl.create);

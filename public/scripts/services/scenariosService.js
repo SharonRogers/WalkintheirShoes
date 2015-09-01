@@ -18,11 +18,28 @@ app.service('scenariosService', function($http, $q) {
 
 	var selected = '';
 	this.setSelected = function(newSelected) {
-		var deferred = $q.defer()
-		console.log('in the service')
+		var deferred = $q.defer();
 		selected = newSelected;
 		deferred.resolve(selected)
-		return deferred.promise
+		return deferred.promise;
+	};
+
+
+
+	this.addFollower = function(newSelectedId) {
+		var deferred = $q.defer()
+		console.log('in the service')
+		
+		$http({
+			method: 'PUT',
+			url: '/api/addFollower/' + newSelectedId
+		}).then(function(data) {
+			console.log(data);
+			deferred.resolve(data);
+		}).catch(function(err) {
+			console.log(err);
+		})
+		return deferred.promise;
 	};
 
 	this.addScenarios = function(scenario) {

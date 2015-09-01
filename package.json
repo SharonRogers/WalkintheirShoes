@@ -2,7 +2,7 @@
   "name": "walkintheirshoes",
   "version": "1.0.0",
   "description": "app to develop empathy",
-  "main": "gitignore.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/SharonRogers/WalkintheirShoes#readme",
   "dependencies": {
+    "aws-sdk": "^2.1.49",
     "bcryptjs": "^2.2.1",
     "body-parser": "^1.13.3",
     "cors": "^2.7.1",

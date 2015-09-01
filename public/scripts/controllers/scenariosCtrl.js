@@ -1,5 +1,7 @@
-app.controller('scenariosCtrl', function($scope, $stateParams, $state, scenariosService) {
+app.controller('scenariosCtrl', function($scope, $stateParams, $state, scenariosService, imageDirective) {
 	
+
+	$scope.images = [];
 
 	$scope.getScenarios = function() {
 		console.log("getScenarios is running");
@@ -10,12 +12,16 @@ app.controller('scenariosCtrl', function($scope, $stateParams, $state, scenarios
 	};
 	$scope.getScenarios();
 
-	$scope.getSelected = function(index) {
-		scenariosService.setSelected($scope.scenarios[index]).then(function(response){
+	$scope.getSelected = function(id) {
+		console.log(id);
+		scenariosService.setSelected(id).then(function(response){
 			console.log(response)
 			$scope.scenario = response;
-			$state.go('scenarios.selected', {selected: $scope.scenario.title})
-		})
+			$state.go('scenarios.selected', {selected: $scope.scenario.title});
+			sceanriosService.addFollower(id).then(function(response) {
+				console.log(response);
+			});
+		});
 	
 			
 	}; 
