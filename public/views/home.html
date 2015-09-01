@@ -6,25 +6,22 @@
 
 	<div>
 		<p class="homeinfotitle">A Journey of Compassion</p>
-		<p class="homeinfo" ng-hide="register">The ability to conect to others has become blurred. In a world that is disconnected by differences, compassion becomes harder out of fear of those differences. Embark on a journey of discovery of how much compassion you feel for those around you. Learn about the things you may not know lies in the secret places of their hearts and spirits. Learn how to feel more compassion and understanding even if it is different than the secrets that lie in your hearts and spirits. Read their stories, look in their eyes, put yourself in their shoes and gauge how much you care for your human beings no matter who they are or what their lives are like. Register to take this journey or log in to continue.</p>
+		<p class="homeinfo" ng-hide="register">The ability to connect to others has become blurred. In a world that is disconnected by differences and fear, compassion becomes bogged down by judgements and stereotypes passed as facts. Embark on a journey of discovery of how much compassion you feel for those around you. Learn about the things you may not know lies in the secret places of their hearts and spirits. Learn how to feel more compassion and understanding even if it is different than the secrets that lie in your hearts and spirits. Read their stories, look in their eyes, put yourself in their shoes and gauge how much you care for your human beings no matter who they are or what their lives are like. Register to take this journey or log in to continue.</p>
 	</div>
 
 	<br>
 
+
+
 	<div class=buttonbar>
-		<button class="login" ng-hide="register" ng-click="addUser()">LOG IN TO CONTINUE JOURNEY</button>
-		<input class="loginbuttons" ng-hide="register" name="email" ng-model="username" placeholder="ENTER EMAIL">
-		<input class="loginbuttons" ng-hide="register" name="password" ng-model="password" placeholder="ENTER PASSWORD">
-		
-		<button ng-hide="register" ng-click="toggle()" class="login">REGISTER TO TAKE JOURNEY</button>
+		<button ui-sref="home.login" class="login" ng-hide="loginButtons" ng-hide="register" ng-click="loginButtons=!loginButtons">LOG IN TO CONTINUE YOUR JOURNEY</button>
+		<button ui-sref="home.signup" ng-hide="loginButtons" ng-hide="register" ng-click="loginButtons=!loginButtons" class="login">REGISTER TO TAKE THE JOURNEY</button>
+		<button ui-sref="about" ng-hide="loginButtons" ng-hide="register" class="login">EXPLORE AS A GUEST</button>
 	</div>
 
 	<br> 
 
 	<ui-view></ui-view>
-
-<!-- <button ng-hide="login" ui-sref="home.login" class="login">Log In</button> -->
-
 
 
 </div>

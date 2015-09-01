@@ -2,6 +2,7 @@
 
 
 var UserStory = require('../models/userStoriesSchema');
+var Subject = require('../models/subjectsSchema');
 
 module.exports = {
 
@@ -54,7 +55,31 @@ module.exports = {
 			if (err) return res.status(500).send(err);
 			else res.send(result);
 		});
-	}
+	},
+
+	create: function(req, res) {
+		var newSubject = new Subject();
+
+			newSubject.subject = req.body.subject;
+			newSubject.comment = req.body.comment;
+			newSubject.response = req.body.response;
+
+		newSubject.save(function(err, result) {
+			if (err) return res.staus(500).send(err);
+			else res.send(result);
+		});
+	},
+
+	// *********METHOD IS CLOSED***************
+
+	// **********THIS METHOD IS TO FIND ALL OF THE DOCUMENTS OR QUERY USING ? IN THE URL OR FOR A SPECIFIC DOCUMENT****************
+
+	read: function(req, res) {
+		Subject.find(req.query).exec(function(err, result) {
+			if (err) return res.status(500).send(err);
+			else res.send(result);
+		});
+	},
 
 	// *********METHOD IS CLOSED***************
 

@@ -23,5 +23,26 @@ app.service('scenariosService', function($http, $q) {
 		selected = newSelected;
 		deferred.resolve(selected)
 		return deferred.promise
-	}
+	};
+
+	this.addScenarios = function(scenario) {
+		console.log("scenario", scenario);
+		var deferred = $q.defer();
+
+		$http({
+			method: 'POST',
+			url: '/api/shareyourstory',
+			data: scenario
+		}).then(function(data) {
+			var results = data.data;
+		}).catch(function(err) {
+			console.log(err)
+		})
+		return deferred.promise;
+	};
+
+	// var imageExtension = imageData.split(‘;’)[0].split(‘/’);
+	// imageExtension = imageExtension[imageExtension.length — 1];
+
+
 });

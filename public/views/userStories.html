@@ -1,10 +1,26 @@
 <video src="assets/graphics/feet.mp4" id="bgvid" autoplay></video>
 
-	<div ng-repeat="userStory in userStories">
-	<p>{{userStory.partOne}}</p>
-	<p>{{userStory.partTwo}}</p>
-	<p>{{userStory.partThree}}</p>
-	<p>{{userStory.partFour}}</p>
-	<p>{{userStory.partFive}}</p>
-</div>
+<div class="combinedContainer">
+	
+	<div class="repeatedstories">
+		
+		<div ng-repeat="userStory in userStories">
+			<p>{{userStory.partOne}}</p>
+			
+		</div>
 
+		<div ui-view></div>
+			
+		<div class="subjects">
+			
+			<div ng-repeat="situation in subjects">
+				<h2>{{situation.subject}}</h2>
+				<p>{{situation.comment}}</p>
+				<p>{{situation.response}}</p>
+			</div>
+
+		</div>
+
+	</div>
+	
+</div>

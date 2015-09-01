@@ -19,6 +19,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		controller: 'loginCtrl'
 	})
 
+	.state('home.login', {
+		url: '/login',
+		templateUrl: 'views/login.html',
+		controller: 'loginCtrl'
+	})
+
+	.state('user', {
+		url: '/user',
+		templateUrl: 'views/user.html',
+		controller: 'loginCtrl'
+	})
+
 	.state('about', {
 		url: '/about',
 		templateUrl: 'views/about.html',
@@ -44,7 +56,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	})
 
 	.state('userStory.personalStory', {
-		url: '/personalStory',
+		url: '/:personalStory',
 		templateUrl: 'views/personalStory.html',
 		controller: 'personalStory'
 	})

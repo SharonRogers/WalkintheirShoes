@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/SharonRogers/WalkintheirShoes#readme",
   "dependencies": {
+    "bcryptjs": "^2.2.1",
     "body-parser": "^1.13.3",
     "cors": "^2.7.1",
     "express": "^4.13.3",

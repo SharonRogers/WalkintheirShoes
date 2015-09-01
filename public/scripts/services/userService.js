@@ -33,6 +33,21 @@ app.service('userService', function($http, $q) {
 		return deferred.promise;
 	};
 
+	this.verifyUser = function(user) {
+		var deferred = $q.defer();
+
+		$http({
+			method: 'POST',
+			url: '/api/login',
+			data: user
+		}).then(function(data) {
+			console.log(data.data);
+			var results = data.data;
+			deferred.resolve(results);
+		})
+		return deferred.promise;
+	};
+
 	this.updateUser = function(user) {
 		var deferred = $q.defer();
 

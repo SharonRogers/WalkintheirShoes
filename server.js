@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var mongoose = require('mongoose');
 var session = require('express-session');
+var bcrypt = require('bcryptjs');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
@@ -32,17 +33,25 @@ app.use(passport.session());
 
 
 // integrating passport-local with username and password
-passport.use(new LocalStrategy({
-	username: 'username',
-	password: 'password'
-	}, function(username, password, done) {
+passport.use('login', new LocalStrategy({
+	usernameField: 'email',
+	passwordField: 'password',
+	passReqToCallback : true
+	}, 
+	function(req, email, password, done) {
 		
-		User.findOne({ username: username }).exec().then(function (user) {
+		User.findOne({ 'email' : email }, function (err, user) {
 			console.log(user);
-			if (!user) { return done(null, false); }
-			if (user.password != password) {return done(null, false); }
-				return done(null, user);
-		});
+			if (err) return done(err);
+			if(!user) {
+				return done(null, false);
+			};
+			if (!user.validPassword(password)) {
+				return done(null, false);
+			};
+			return done(null, user);
+			}
+		);
 	}
 ));
 
@@ -84,13 +93,29 @@ app.put ('/api/signup/:id', loginCtrl.update);
 app.delete ('/api/signup/:id', loginCtrl.remove);
 
 
-// // authenticate requests
-// app.post('/login',
-// 	passport.authenticate('local', {failureRedirect: '/login' }),
-// 	function(req, res) {
-// 		res.json(req.user);
-// 	});
+app.post ('/api/login', passport.authenticate('login', {
+	failureRedirect : '/#/home',
+	failureFlash : true
+}),
+	function(req, res) {
+		res.status(200).json(req.user)
+		}
+);
 
+app.get('/logout', function(req, res) {
+	req.logout();
+	res.redirect('/');
+});
+
+// ********ADD ABILITY FOR SHARE VIEW*********
+app.post ('/api/shareyourstory', scenariosCtrl.create);
+app.get ('/api/shareyourstory', scenariosCtrl.read);
+app.put ('/api/shareyourstory/:id', scenariosCtrl.update);
+app.delete ('/api/shareyourstory/:id', scenariosCtrl.remove);
+
+
+
+ 
 
 ////////////////////Connections
 var port = 8000;

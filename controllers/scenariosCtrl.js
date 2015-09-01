@@ -15,7 +15,9 @@ module.exports = {
 
 			newScenario.title = req.body.title;
 			newScenario.scenario = req.body.scenario;
+			newScenario.resolution = req.body.resolution;
 			newScenario.imageId = req.body.imageId;
+			newScenario.eyeId = req.body.eyeId;
 
 		newScenario.save(function(err, result) {
 			if (err) return res.status(500).send(err);

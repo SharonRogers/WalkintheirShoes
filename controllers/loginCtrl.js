@@ -7,14 +7,27 @@ module.exports = {
 	create: function(req, res) {
 		console.log(req.body);
 
-		var newUser = new User(req.body);
+		User.findOne({ 'email' : req.body.email }, function(err, user) {
+			console.log(err, user);
 
-		newUser.save(function(err, result) {
-			console.log("result", result);
-			if (err) return res.status(500).send(err);
-			else res.send(result);
+			if (err) {
+				return res.json(err);
+			}
+			if (user) {
+				return res.json('That email is already taken.'); 
+			} else {
+				console.log('is this running');
+				var newUser = new User();
+				newUser.email = req.body.email;
+				newUser.password = newUser.generateHash(req.body.password);
+				newUser.firstname = req.body.firstname;
+				console.log(newUser);
+				newUser.save(function(err) {
+					if (err) console.log(err);
+					return res.json(newUser);
+					});				
+				}
 		});
-
 	},
 
 	read: function(req, res) {
