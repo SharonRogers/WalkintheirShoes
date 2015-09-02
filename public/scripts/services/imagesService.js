@@ -3,7 +3,8 @@ app.factory('imagesService', function($http) {
 
 	service.storeImage = function(imageData, filename) {
 		var imageExtension = imageData.split(';')[0].split('/');
-		imageExtension = imgeExtension[imageExtension.length - 1];
+		imageExtension = imageExtension[imageExtension.length - 1];
+		console.log(imageExtension);
 
 		var newImage = {
 			imageName: filename,

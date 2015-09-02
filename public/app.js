@@ -73,4 +73,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		controller: 'shareCtrl'
 	})
 
+	.state('admin', {
+		url: '/admin',
+		templateUrl: 'views/admin.html',
+		controller: 'adminCtrl'
+	})
+
 })

@@ -1,7 +1,8 @@
-app.directive('fileread', function (imageService) {
+app.directive('fileread', function (imagesService) {
   return {
     restrict: 'A',
     link: function (scope, elem, attrs) {
+      console.log(scope, elem, attrs);
       elem.bind("change", function (changeEvent) {
           
         var reader = new FileReader();
@@ -9,11 +10,13 @@ app.directive('fileread', function (imageService) {
           var fileread = loadEvent.target.result;
           console.log(fileread);
 
-          var TempArray = elem['context'].value.split('\\');
+          var tempArray = elem[0].value.split('\\');
           var fileName = tempArray[tempArray.length - 1];
 
-          imageService.storeImage(fileread, fileName)
+          imagesService.storeImage(fileread, fileName)
           .then(function (result) {
+            scope.imageLink = result.data.Location
+            console.log(result.data)
             scope.images.unshift(result.data);
           }).catch(function (err) {
             console.log(err);

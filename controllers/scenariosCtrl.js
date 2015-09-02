@@ -3,7 +3,7 @@
 var Scenario = require('../models/scenarioSchema');
 var User = require('../models/userSchema');
 var AWS = require('aws-sdk');
-var Keys = require('./keys.js');
+var Keys = require('../keys.js');
 
 AWS.config.update({
 	accessKeyId: Keys.amazonAccess
@@ -104,7 +104,7 @@ module.exports = {
 			Bucket: bucketName
 			, Key: req.body.imageName
 			, Body: buf
-			, CongtentType: 'image/' + req.body.imageExtension
+			, ContentType: 'image/' + req.body.imageExtension
 			, ACL: 'public-read'
 		};
 

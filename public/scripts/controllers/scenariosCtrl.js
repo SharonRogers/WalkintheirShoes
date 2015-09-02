@@ -1,7 +1,5 @@
-app.controller('scenariosCtrl', function($scope, $stateParams, $state, scenariosService, imageDirective) {
+app.controller('scenariosCtrl', function($scope, $stateParams, $state, scenariosService) {
 	
-
-	$scope.images = [];
 
 	$scope.getScenarios = function() {
 		console.log("getScenarios is running");
@@ -18,7 +16,7 @@ app.controller('scenariosCtrl', function($scope, $stateParams, $state, scenarios
 			console.log(response)
 			$scope.scenario = response;
 			$state.go('scenarios.selected', {selected: $scope.scenario.title});
-			sceanriosService.addFollower(id).then(function(response) {
+			scenariosService.addFollower(id).then(function(response) {
 				console.log(response);
 			});
 		});

@@ -17,6 +17,7 @@ var scenariosCtrl = require('./controllers/scenariosCtrl');
 var userStoriesCtrl = require('./controllers/userStoriesCtrl');
 var testCtrl = require('./controllers/testCtrl');
 var loginCtrl = require('./controllers/loginCtrl');
+var adminCtrl = require('./controllers/adminCtrl');
 var User = require('./models/userSchema');
 
 
@@ -70,11 +71,15 @@ passport.deserializeUser(function(obj, done) {
 
 ////////////////////Endpoints
 
+// *************ADMIN PAGE***************
+app.put ('/api/admin/:id', scenariosCtrl.update);
+app.delete ('/api/admin/:id', scenariosCtrl.remove);
+
+
+
+
 // ********FULL SAMPLE STORIES ENDPOINTS FOR SCENARIOS VIEW*********
-app.post ('/api/Scenarios', scenariosCtrl.create);
-app.get ('/api/Scenarios', scenariosCtrl.read);
-app.put ('/api/Scenarios/:id', scenariosCtrl.update);
-app.delete ('/api/Scenarios/:id', scenariosCtrl.remove);
+app.get ('/api/scenarios', scenariosCtrl.read);
 
 
 // ***********USER FRAMEWORK STORIES TO BE INTEGRATED AND USERSTORIES VIEW****
@@ -97,7 +102,7 @@ app.put ('/api/signup/:id', loginCtrl.update);
 app.delete ('/api/signup/:id', loginCtrl.remove);
 
 
-app.post('/api/newimage', ScenariosCtrl.saveImage);
+app.post('/api/newimage', scenariosCtrl.saveImage);
 
 
 app.post ('/api/login', passport.authenticate('login', {

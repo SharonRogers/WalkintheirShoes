@@ -58,8 +58,5 @@ app.service('scenariosService', function($http, $q) {
 		return deferred.promise;
 	};
 
-	// var imageExtension = imageData.split(‘;’)[0].split(‘/’);
-	// imageExtension = imageExtension[imageExtension.length — 1];
-
-
+	
 });

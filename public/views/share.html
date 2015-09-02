@@ -8,8 +8,8 @@
 			<input class="submitstoryimage" class-"firstname" ng-model="title" placeholder="FIRST NAME">
 			<input class="sharestory" ng-model="scenario" placeholder="SHARE YOUR LIFE EXPERIENCE">
 			<input class="sharestory" ng-model="resolution" placeholder="SHARE THE REST OF THE STORY">
-			<input  type="file" images="images" accept="image/*" class="submitstoryimage" ng-model="imageID" placeholder="UPLOAD IMAGE" fileread>
-			<button class="submitstory" ng-click="addScenario()">SUBMIT STORY</button>
+			<input  type="file" images="images" accept="image/*" class="submitstoryimage" ng-model="imageId" placeholder="UPLOAD IMAGE" fileread>
+			<button class="submitstory" ng-click="addScenario(title, scenario, resolution, imageId)">SUBMIT STORY</button>
 		</div>
 		
 		<br>
