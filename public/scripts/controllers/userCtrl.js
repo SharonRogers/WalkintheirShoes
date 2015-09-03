@@ -1,3 +1,5 @@
+// ********This is the front end controller for the user view which will show all user information including a repeat of selected stories, person info for user stories, any shared stories, and an ability to update or remove user profile****
+
 app.controller('userCtrl', function($scope, userService) {
 
 	$scope.getUser = function() {

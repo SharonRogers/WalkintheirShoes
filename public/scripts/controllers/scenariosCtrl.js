@@ -1,3 +1,5 @@
+// *********This is the front end controller for the scenarios view that will get all scenarios and repeat them as well as pull one selected story out of the list in the view*************
+
 app.controller('scenariosCtrl', function($scope, $stateParams, $state, scenariosService) {
 	
 

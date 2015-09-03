@@ -16,7 +16,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	.state('home.signup', {
 		url: '/signup',
 		templateUrl: 'views/signUp.html',
-		controller: 'loginCtrl'
+		controller: 'signupCtrl'
 	})
 
 	.state('home.login', {
@@ -34,7 +34,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	.state('about', {
 		url: '/about',
 		templateUrl: 'views/about.html',
-		controller: 'mainCtrl'
 	})
 
 	.state('scenarios', {

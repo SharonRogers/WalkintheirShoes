@@ -1,4 +1,4 @@
-// ************* CONTROLLER IS FOR LOGIN PAGE****************
+// ************* CONTROLLER IS FOR SIGNUP PAGE****************
 
 var User = require('../models/userSchema');
 
@@ -28,29 +28,6 @@ module.exports = {
 					});				
 				}
 		});
-	},
-
-	read: function(req, res) {
-		User.find(req.query).exec(function(err, result) {
-			if (err) return res.status(500).send(err);
-			else res.send(result);
-		});
-	},
-
-	update: function(req, res) {
-		UserInfo.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
-			if (err) return res.status(500).send(err);
-			else res.send(result);
-		});
-	},
-
-	remove: function(req, res) {
-		UserInfo.findByIdAndRemove(req.params.id, req.body, function(err, result) {
-			if (err) return res.status(500).send(err);
-			else res.send(result);
-		});
 	}
-
-	
 };
 

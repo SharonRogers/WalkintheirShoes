@@ -7,7 +7,7 @@ app.service('userService', function($http, $q) {
 
 		$http({
 			method: 'GET',
-			url: '/api/signup'
+			url: '/api/admin'
 		}).then(function(data) {
 			console.log("This is GET call", data);
 			var results = data.data;

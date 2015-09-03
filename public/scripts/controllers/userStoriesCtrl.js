@@ -1,3 +1,5 @@
+// **********This is the front end controller for the user stories view which repeats a title of story and a repeat of problems*************
+
 app.controller('userStoriesCtrl', function($scope, userMyStoryService) {
 
 	$scope.getUserStories = function() {

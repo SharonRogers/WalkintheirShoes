@@ -1,34 +1,10 @@
+// ***********This is the front end controller for the login view that will verify if the user is in the database and then return their information to be used on the user view**************
+
 app.controller('loginCtrl', function($scope, $state, userService) {
 	
-
 	$scope.$state = $state;
-
-	$scope.getUsers = function() {
-		console.log("getUsers is running");
-		userService.getUsers().then(function(results) {
-			$scope.users = results;
-		});
-	};
-
 	$scope.register = true;
 	$scope.loginButtons = true;
-
-
-
-
-	$scope.getUsers();
-
-	$scope.addUser = function() {
-		console.log("addUser is running");
-		var userInfo = {
-			email: $scope.username,
-			password: $scope.password,
-			firstname: $scope.firstName
-		}
-		userService.addUser(userInfo).then(function(results) {
-			console.log("userInfo in ctrl: ", results)
-		})	
-	};
 
 	$scope.verifyUser = function() {
 		console.log("verify user is running");

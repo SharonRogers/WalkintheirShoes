@@ -1,3 +1,5 @@
+// ******This is the front end controller for the share view that will add a new object when it is submitted. It will also add a new problem as well.***********
+
 app.controller('shareCtrl', function($scope, scenariosService, $rootScope) {
 
 	$scope.imageLink;

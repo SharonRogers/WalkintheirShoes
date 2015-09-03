@@ -18,6 +18,9 @@ var userStoriesCtrl = require('./controllers/userStoriesCtrl');
 var testCtrl = require('./controllers/testCtrl');
 var loginCtrl = require('./controllers/loginCtrl');
 var adminCtrl = require('./controllers/adminCtrl');
+var userCtrl = require('./controllers/userCtrl');
+var problemCtrl = require('./controllers/problemCtrl');
+var shareCtrl = require('./controllers/shareCtrl');
 var User = require('./models/userSchema');
 
 
@@ -69,41 +72,9 @@ passport.deserializeUser(function(obj, done) {
 });
 
 
-////////////////////Endpoints
+////////////////////Endpoints/////////////////////////
 
-// *************ADMIN PAGE***************
-app.put ('/api/admin/:id', scenariosCtrl.update);
-app.delete ('/api/admin/:id', scenariosCtrl.remove);
-
-
-
-
-// ********FULL SAMPLE STORIES ENDPOINTS FOR SCENARIOS VIEW*********
-app.get ('/api/scenarios', scenariosCtrl.read);
-
-
-// ***********USER FRAMEWORK STORIES TO BE INTEGRATED AND USERSTORIES VIEW****
-app.post ('/api/userStory', userStoriesCtrl.create);
-app.get ('/api/userStory', userStoriesCtrl.read);
-app.put ('/api/userStory/:id', userStoriesCtrl.update);
-app.delete ('/api/userStory/:id', userStoriesCtrl.remove);
-
-
-// ***********TEST QUESTIONS FOR TEST VIEW***********
-app.post ('/api/test', testCtrl.create);
-app.get ('/api/test', testCtrl.read);
-app.put ('/api/test/:id', testCtrl.update);
-app.delete ('/api/test/:id', testCtrl.remove);
-
-// **************SIGNUP FOR USERS************
-app.post ('/api/signup', loginCtrl.create);
-app.get ('/api/signup', loginCtrl.read);
-app.put ('/api/signup/:id', loginCtrl.update);
-app.delete ('/api/signup/:id', loginCtrl.remove);
-
-
-app.post('/api/newimage', scenariosCtrl.saveImage);
-
+// ****************LOGIN FOR USERS****************
 
 app.post ('/api/login', passport.authenticate('login', {
 	failureRedirect : '/#/home',
@@ -120,18 +91,60 @@ app.get('/logout', function(req, res) {
 	res.redirect('/#/home');
 });
 
+// **************SIGNUP FOR USERS************
+app.post ('/api/signup', loginCtrl.create);
+
+
+// *************USER VIEW****************
+// app.put ('/api/signup/:id', loginCtrl.update);
+// app.delete ('/api/signup/:id', loginCtrl.remove);
+
+
+
+// ********FULL SAMPLE STORIES ENDPOINTS FOR SCENARIOS VIEW*********
+app.get ('/api/scenarios', scenariosCtrl.read);
 app.put('/api/addFollower/:scenarioId', scenariosCtrl.addFollower);
 
 
-// ********ADD ABILITY FOR SHARE VIEW*********
-app.post ('/api/shareyourstory', scenariosCtrl.create);
-app.get ('/api/shareyourstory', scenariosCtrl.read);
-app.put ('/api/shareyourstory/:id', scenariosCtrl.update);
-app.delete ('/api/shareyourstory/:id', scenariosCtrl.remove);
+
+// ***********USER FRAMEWORK STORIES TO BE INTEGRATED AND USERSTORIES VIEW****
+app.get ('/api/userStory', userStoriesCtrl.read);
 
 
 
- 
+// ***********TEST QUESTIONS FOR TEST VIEW***********
+app.get ('/api/test', testCtrl.read);
+
+
+// **************SHARE VIEW******************
+app.post ('/api/shareyourstory', shareCtrl.createScenario);
+app.post('/api/newimage', shareCtrl.saveImage);
+
+app.post('./api/shareyourstory', shareCtrl.createProblem);
+
+
+
+ // *************ADMIN PAGE***************
+app.get('/api/getAllUsers', adminCtrl.getAllUsers);
+
+app.get ('/api/getAllScenarios', adminCtrl.readScenarios);
+app.put ('/api/updateScenarios/:scenarioid', adminCtrl.updateScenarios);
+app.delete ('/api/removeSceanrios/:scenarioId', adminCtrl.removeScenarios);
+
+// app.post ('/api/addUserStory', adminCtrl.createAddUserStory);
+app.get ('/api/readAllUserStories', adminCtrl.readAllUserStories);
+app.put ('/api/updateUserStory/:id', adminCtrl.updateUserStory);
+app.delete ('/api/removeUserStory/:id', adminCtrl.removeUserStory);
+
+// app.get ('/api/allProblems', );
+// app.put
+// app.delete
+
+app.post ('/api/addTestItem', adminCtrl.addTestItem);
+app.get ('/api/getAllTestItems', adminCtrl.getAllTestItems);
+app.put ('/api/updateTestItem/:id', adminCtrl.updateTestItem);
+app.delete ('/api/removeTestItem/:id', adminCtrl.removeTestItem);
+
 
 ////////////////////Connections
 var port = 8000;

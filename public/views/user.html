@@ -1,7 +1,26 @@
+<!-- This is the view for the User's page -->
+
+
 <video src="assets/graphics/LeicesterSquareatNightVidevo.mp4" id="bgvid" autoplay></video>
 
 	<div>	
 
 	 	<p class="userwelcome title"><span>Hello </span><span>{{ userObj.firstname }}</span></p>
+
+	 <div>
+	
+		<p class="homeinfo">You have embarked on a journey of discovery of how much compassion you feel for those around you. Learn about the things you may not know lies in the secret places of their hearts and spirits. Learn how to feel more compassion and understanding even if it is different than the secrets that lie in your hearts and spirits. Read their stories, look in their eyes, put yourself in their shoes and gauge how much you care for your human beings no matter who they are or what their lives are like. Begin by signing up.</p>
+	</div>
+
+	 	<div class="userscenarios">
+		
+		<div ng-repeat="userStory in userObj">
+				<h2>{{ userStory.title }}</h2>
+				<p>{{ userStory.scenario}}</p>
+				<img src="{{userStory.imageId}}">
+		</div>
+
+	 	
+	 </div>
 		
 	</div>

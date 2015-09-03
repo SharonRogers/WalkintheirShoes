@@ -1,26 +1,32 @@
+<!-- This view is for the main welcome / home page and provides a way to log in or sign up only as well as a button to the admin page -->
+
 <video src="assets/graphics/Random_Legs_Walking_Pullfocus.mp4" id="bgvid" autoplay loop></video>
 
-<h1 class="title">Take a Walk in Their Shoes</h1>
+<button ui-sref="admin" class="adminButton">Admin</button>
+
+<h1 class="title">Welcome</h1>
+
+<h1 class="title">Get Ready to Embark on a Great Adventure</h1>
 
 <div class="container">
 
 	<div>
 		<p class="homeinfotitle">A Journey of Compassion</p>
-		<p class="homeinfo" ng-hide="register">The ability to connect to others has become blurred. In a world that is disconnected by differences and fear, compassion becomes bogged down by judgements and stereotypes passed as facts. Embark on a journey of discovery of how much compassion you feel for those around you. Learn about the things you may not know lies in the secret places of their hearts and spirits. Learn how to feel more compassion and understanding even if it is different than the secrets that lie in your hearts and spirits. Read their stories, look in their eyes, put yourself in their shoes and gauge how much you care for your human beings no matter who they are or what their lives are like. Register to take this journey or log in to continue.</p>
+		<p class="homeinfo" ng-hide="register">The ability to connect and the effort to understand others has become blurred. In a world that is disconnected by differences and fear, compassion becomes bogged down by judgements and stereotypes passed as facts. Log in to continue your journey or sign up to take one. Signing up will allow you to interact with those you will meet.</p>
 	</div>
 
 	<br>
 
-
-
 	<div class=buttonbar>
 		<button ui-sref="home.login" class="login" ng-hide="loginButtons" ng-hide="register" ng-click="loginButtons=!loginButtons">LOG IN TO CONTINUE YOUR JOURNEY</button>
-		<button ui-sref="home.signup" ng-hide="loginButtons" ng-hide="register" ng-click="loginButtons=!loginButtons" class="login">REGISTER TO TAKE THE JOURNEY</button>
-		<button ui-sref="about" ng-hide="loginButtons" ng-hide="register" class="login">EXPLORE AS A GUEST</button>
+		<button ui-sref="home.signup" ng-hide="loginButtons" ng-hide="register" ng-click="loginButtons=!loginButtons" class="login">SIGN UP TO TAKE THE JOURNEY</button>
+
 	</div>
 
 	<br> 
 
+<!-- This ui-view takes you to nested views of either logging-in buttons showing only or signing up buttons only. These butons have no functions and are only as ui-srefs
+ -->
 	<ui-view></ui-view>
 
 

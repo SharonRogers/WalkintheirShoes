@@ -1,16 +1,14 @@
+<!-- This is a nested view in home to sign up to participate and has a function on the button to run a create function in user as well as a ui-sref to go to user page -->
 
 <div>
-	
+
 	<div class=buttonbar>
 		
 		<input class="loginbuttons" type="email" name="email" ng-model="username" placeholder="ENTER EMAIL">
 		<input type="password" class="loginbuttons" name="password" ng-model="password" placeholder="ENTER PASSWORD">
 		<input class="loginbuttons" name="firstName" ng-model="firstName" placeholder="ENTER FIRST NAME">
-		<button ui-sref="user" class="login" ng-click="addUser()">REGISTER</button>
+		<button class="login" ng-click="addUser()">REGISTER</button>
 		
 	</div>
-
-
-
 	
 </div>
