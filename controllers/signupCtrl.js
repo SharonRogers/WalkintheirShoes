@@ -12,9 +12,6 @@ module.exports = {
 
 			if (err) {
 				return res.json(err);
-			}
-			if (user) {
-				return res.json('That email is already taken.'); 
 			} else {
 				console.log('is this running');
 				var newUser = new User();
@@ -23,8 +20,13 @@ module.exports = {
 				newUser.firstname = req.body.firstname;
 				console.log(newUser);
 				newUser.save(function(err) {
-					if (err) console.log(err);
-					return res.json(newUser);
+					if (err) {
+						console.log(err);
+					} else {
+						// passport.authenticate('local')(req, res, function () {
+							res.json(req.user);
+						// })
+					}
 					});				
 				}
 		});

@@ -25,4 +25,4 @@ app.controller('scenariosCtrl', function($scope, $stateParams, $state, scenarios
 	
 			
 	}; 
-})
+});

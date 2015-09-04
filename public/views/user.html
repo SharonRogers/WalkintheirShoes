@@ -1,11 +1,16 @@
 <!-- This is the view for the User's page -->
 
 
-<video src="assets/graphics/LeicesterSquareatNightVidevo.mp4" id="bgvid" autoplay></video>
+<video src="assets/graphics/SilhouetteWalk.mp4" id="bgvid" autoplay></video>
+
+<button class="topButton">Log Out</button>
+<p class="smallId"><span>Hi </span><span>{{ userObj.firstname }}</span></p>
+
+<div class="userContainer">
 
 	<div>	
 
-	 	<p class="userwelcome title"><span>Hello </span><span>{{ userObj.firstname }}</span></p>
+	 	<p class="userwelcome title"><span>Hello </span><span>{{ userObj.firstname }}</span><span>!</span></p>
 
 	 <div>
 	
@@ -14,10 +19,10 @@
 
 	 	<div class="userscenarios">
 		
-		<div ng-repeat="userStory in userObj">
+		<div ng-repeat="userStory in userObj.stories">
 				<h2>{{ userStory.title }}</h2>
-				<p>{{ userStory.scenario}}</p>
-				<img src="{{userStory.imageId}}">
+				<p>{{ userStory.scenario }}</p>
+				<img src="{{ userStory.imageId }}">
 		</div>
 
 	 	

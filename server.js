@@ -16,7 +16,7 @@ var app = express();
 var scenariosCtrl = require('./controllers/scenariosCtrl');
 var userStoriesCtrl = require('./controllers/userStoriesCtrl');
 var testCtrl = require('./controllers/testCtrl');
-var loginCtrl = require('./controllers/loginCtrl');
+var signupCtrl = require('./controllers/signupCtrl');
 var adminCtrl = require('./controllers/adminCtrl');
 var userCtrl = require('./controllers/userCtrl');
 var problemCtrl = require('./controllers/problemCtrl');
@@ -48,7 +48,9 @@ passport.use('login', new LocalStrategy({
 	}, 
 	function(req, email, password, done) {
 		
-		User.findOne({ 'email' : email }, function (err, user) {
+		User.findOne({ 'email' : email })
+		.populate('stories')
+		.exec(function(err, user) {
 			console.log(user);
 			if (err) return done(err);
 			if(!user) {
@@ -57,9 +59,11 @@ passport.use('login', new LocalStrategy({
 			if (!user.validPassword(password)) {
 				return done(null, false);
 			};
-			return done(null, user);
-			}
-		);
+			tempUser = user;
+			delete tempUser.password;
+			console.log("This is in the server tempuser", tempUser);
+			return done(null, tempUser);
+		})
 	}
 ));
 
@@ -77,27 +81,27 @@ passport.deserializeUser(function(obj, done) {
 // ****************LOGIN FOR USERS****************
 
 app.post ('/api/login', passport.authenticate('login', {
-	failureRedirect : '/#/home',
 }),
 	function(req, res) {
-		console.log('$$$$$$$$$$$$$$$$$$ req.body for login', req.body);
-		console.log('$$$$$$$$$$$$$$$$$$ req.user for login', req.user);
-		res.status(200).json(req.user)
-		}
+			console.log('$$$$$$$$$$$$$$$$$$ req.body for login', req.body);
+			console.log('$$$$$$$$$$$$$$$$$$ req.user for login', req.user);
+			res.status(200).json(req.user)
+		 }
 );
 
-app.get('/logout', function(req, res) {
-	req.logout();
-	res.redirect('/#/home');
-});
+// app.get('/logout', function(req, res) {
+// 	req.logout();
+// 	res.redirect('/#/home');
+// });
 
 // **************SIGNUP FOR USERS************
-app.post ('/api/signup', loginCtrl.create);
+app.post ('/api/signup', signupCtrl.create);
 
 
 // *************USER VIEW****************
 // app.put ('/api/signup/:id', loginCtrl.update);
 // app.delete ('/api/signup/:id', loginCtrl.remove);
+// app.get('/api/user', userCtrl.userScenarios);
 
 
 
@@ -158,3 +162,4 @@ mongoose.connection.once('open', function() {
 app.listen(port, function() {
 	console.log('listening on port ', port);
 });
+

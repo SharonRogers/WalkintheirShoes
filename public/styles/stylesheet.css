@@ -8,6 +8,11 @@ html, body {
 
 .navBar {
 	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+	display: flex;
+	justify-content: space-around;
 }
 
 .barMenu {
@@ -67,7 +72,7 @@ video {
 	opacity: .8;
 }
 
-/*Styling for Home Page*/
+/*Styling for Welcome Page*/
 
 .title {
 	color: #fff;
@@ -114,13 +119,47 @@ video {
 	padding-left: 10px;
 }
 
+.topButton {
+	height: 75px;
+	width: 150px;
+	border-radius: 15px;
+	border: 1px black solid;
+	padding: 20px;
+	background-color: #fff;
+	font-size: 25px;
+	opacity: 0.3;
+	position: relative;
+	top: -250px;
+	margin-left: 40px;
+	text-align: center;
+	vertical-align: center;
+}
+
 
 /*styling for User page*/
+
+.smallId {
+	color: #fff;
+	font-size: 30px;
+	vertical-align: left;
+	margin-left: 65px;
+	position: relative;
+	top: -260px;
+	margin-bottom: -10px;
+
+}
+
+.userContainer {
+	display: flex;
+	float: center;
+	margin-top: -175px;
+}
+
 .userscenarios {
 	height: 80%;
 	width: 15%;
 	opacity: 0.5;
-	border: 1px solid black;
+	border: 10px solid black;
 	background-color: white;
 	text-align: center;
 	float: left;
@@ -167,9 +206,6 @@ video {
 	text-decoration: none;
 }
 
-a {
-	background-color: transparent; 
-}
 
 .userwelcome {
 	font-size: 100px;
@@ -181,19 +217,20 @@ a {
 	display: flex;
 	justify-content: space-around;
 	flex-direction: row;
+	border: 5px red dashed;
 }
 
 .repeatedscenarios {
-	height: 80%;
-	width: 15%;
+	height: 50px;
+	width: 100px;
 	opacity: 0.5;
-	border: 1px solid black;
+	border: 10px solid black;
 	background-color: white;
 	text-align: center;
 	float: left;
 	vertical-align: left;
-	display: flex;
-	flex-direction: column;
+/*	display: flex;
+	flex-direction: column;*/
 	margin-left: 50px;
 }
 
@@ -202,8 +239,8 @@ ul {
 }
 
 .selected {
-	height: 80%;
-	width: 60%;
+	height: 250px;
+	width: 500px;
 	border: 1px solid black;
 	background-color: white;
 	opacity: 0.5;
@@ -212,10 +249,10 @@ ul {
 }
 
 .repeatedimages {
-	height: 80%;
-	width: 15%;
+	height: 100px;
+	width: 100px;
 	opacity: 0.5;
-	border: 1px solid black;
+	border: 10px dashed blue;
 	background-color: white;
 	text-align: center;
 	display: flex;
@@ -332,7 +369,4 @@ ul {
 }
 
 /*styling for Admin page*/
-.adminUserContainer {
-	background-color: red;
-	border: 10px, black, solid;
-}
+

@@ -7,7 +7,7 @@ app.service('userService', function($http, $q) {
 
 		$http({
 			method: 'GET',
-			url: '/api/admin'
+			url: '/api/getAllUsers'
 		}).then(function(data) {
 			console.log("This is GET call", data);
 			var results = data.data;
@@ -53,31 +53,37 @@ app.service('userService', function($http, $q) {
 		return deferred.promise;
 	};
 
-	this.updateUser = function(user) {
-		var deferred = $q.defer();
-
-		$http.put('/api/signup', {user}).
-		then(function(data) {
-			console.log("This is PUT call for add user", data);
-			var results = data.data;
-			console.log(results);
-		})
-		return deferred.promise;
-	};
-
-	this.removeUser = function(user) {
-		var deferred = $q.defer();
-
-		$http.delete('/api/signup', {user}).
-		then(function(data) {
-			var results = data.data;
-		})
-		return deferred.promise;
-	};
-
 	this.getUser = function() {
 		return userObj;
 	};
+
+
+
+	// TODO: replace endpoints for user page********
+
+	// this.updateUser = function(user) {
+	// 	var deferred = $q.defer();
+
+	// 	$http.put('/api/signup', {user}).
+	// 	then(function(data) {
+	// 		console.log("This is PUT call for add user", data);
+	// 		var results = data.data;
+	// 		console.log(results);
+	// 	})
+	// 	return deferred.promise;
+	// };
+
+	// this.removeUser = function(user) {
+	// 	var deferred = $q.defer();
+
+	// 	$http.delete('/api/signup', {user}).
+	// 	then(function(data) {
+	// 		var results = data.data;
+	// 	})
+	// 	return deferred.promise;
+	// };
+
+
 	
 
 });

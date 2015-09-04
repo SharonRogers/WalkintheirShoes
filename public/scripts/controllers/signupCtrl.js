@@ -13,11 +13,10 @@ app.controller('signupCtrl', function($scope, $state, userService) {
 			firstname: $scope.firstName
 		}
 		userService.addUser(userInfo).then(function(results) {
-			console.log("userInfo in ctrl: ", results)
-			$scope.userObj = results;
-			console.log($scope.userObj);
+			userService.verifyUser(userInfo).then(function(loginResults) {
+			console.log("userInfo in ctrl: ", loginResults)
 			$state.go('user');
-		})	
+			})	
+		});
 	};
-
-})
+});

@@ -28,7 +28,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	.state('user', {
 		url: '/user',
 		templateUrl: 'views/user.html',
-		controller: 'userCtrl'
+		controller: 'userCtrl',
+		resolve: {
+			currentUser: function(userService) {
+				return userService.getUser();
+			}
+		}
 	})
 
 	.state('about', {
