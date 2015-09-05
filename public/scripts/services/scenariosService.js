@@ -1,10 +1,13 @@
 app.service('scenariosService', function($http, $q) {
+
+
 	this.getScenarios = function() {
 		var deferred = $q.defer();
 
 		$http({
 			method: 'GET',
-			url: '/api/Scenarios'
+			url: '/api/scenarios'
+			// url: '/api/scenarios?_id=' + newSelected
 		}).then(function(data) {
 			console.log(data);
 			var results = data.data;	
@@ -16,12 +19,24 @@ app.service('scenariosService', function($http, $q) {
 		return deferred.promise;
 	};
 
-	var selected = '';
+	this.selected;
 	this.setSelected = function(newSelected) {
+		console.log("newselected", newSelected)
 		var deferred = $q.defer();
-		selected = newSelected;
-		deferred.resolve(selected)
+		$http({
+			method: 'GET',
+			url: '/api/scenarios?_id=' + newSelected
+		}).then(function(data) {
+			console.log(data);
+			// var results = data.data;	
+			// console.log(results);
+			selected = data.data
+			deferred.resolve(data.data);
+		}).catch(function(err) {
+			console.log(err)
+		})
 		return deferred.promise;
+		// return deferred.promise;
 	};
 
 

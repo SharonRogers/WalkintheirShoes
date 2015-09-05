@@ -2,25 +2,30 @@
 
 app.controller('scenariosCtrl', function($scope, $stateParams, $state, scenariosService) {
 	
+	// $scope.scenario;
 
 	$scope.getScenarios = function() {
 		console.log("getScenarios is running");
 		scenariosService.getScenarios().then(function(res) {
-			console.log(res);
+			// console.log(res);
 			$scope.scenarios = res;
+			// console.log($scope.scenarios)
 		});
 	};
 	$scope.getScenarios();
 
+	var selectedPerson;
+
 	$scope.getSelected = function(id) {
 		console.log(id);
 		scenariosService.setSelected(id).then(function(response){
-			console.log(response)
-			$scope.scenario = response;
-			$state.go('scenarios.selected', {selected: $scope.scenario.title});
-			scenariosService.addFollower(id).then(function(response) {
-				console.log(response);
-			});
+			console.log("response in $scope.getSelected", response)
+			$scope.scenario = response[0];
+			console.log("asdfasdfsafsdfaksdhflkasjdfkl;jasd;flkj", $scope.scenario)
+			$state.go('scenarios.selected', {selectedPerson: $scope.scenario.title});
+			// scenariosService.addFollower(id).then(function(response) {
+			// 	console.log(response);
+			// });
 		});
 	
 			

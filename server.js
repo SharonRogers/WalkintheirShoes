@@ -89,10 +89,10 @@ app.post ('/api/login', passport.authenticate('login', {
 		 }
 );
 
-// app.get('/logout', function(req, res) {
-// 	req.logout();
-// 	res.redirect('/#/home');
-// });
+app.get('/logout', function(req, res) {
+	req.logout();
+	res.redirect('/#/home');
+});
 
 // **************SIGNUP FOR USERS************
 app.post ('/api/signup', signupCtrl.create);

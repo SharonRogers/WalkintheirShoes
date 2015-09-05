@@ -11,23 +11,18 @@
 	
 <div class="scenarioContainer">
 
-	<div class="repeatscenarios">
-		
-		<div ng-repeat="story in scenarios">
-			<button ng-click="getSelected(story._id)">
+	<div class="repeatedContainer">
+
+		<div class="repeatedSceanarios" ng-repeat="story in scenarios">
+			<button ng-click="getSelected(story._id)"></button>
 				<h2>{{story.title}}</h2>
-				<p>{{story.scenario}}</p>
 		</div>
 	</div>
 
 	<!-- This is the nested view for the selected story -->
 	<div ui-view></div>
 
-	<div class="repeatedimages">
-		
-		<div ng-repeat="story in scenarios">
-			<img src={{story.imageId}}>
-		</div>
+
 
 	</div>
 

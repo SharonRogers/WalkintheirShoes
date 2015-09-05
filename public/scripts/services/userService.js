@@ -58,6 +58,9 @@ app.service('userService', function($http, $q) {
 	};
 
 
+	// this.logout = function() {
+		
+	// }
 
 	// TODO: replace endpoints for user page********
 

@@ -38,7 +38,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 	.state('about', {
 		url: '/about',
-		templateUrl: 'views/about.html',
+		templateUrl: 'views/about.html'
 	})
 
 	.state('scenarios', {
@@ -48,9 +48,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	})
 
 	.state('scenarios.selected', {
-		url: '/:selected',
+		url: '/:selectedPerson',
 		templateUrl: 'views/selected.html',
-		controller: 'scenariosCtrl'
+		controller: 'scenariosCtrl',
+		// resolve: {
+		// 	selectedPerson: function(scenarios){
+		// 		return 
+		// 	}
+		// }
 	})
 
 	.state('userStory', {
@@ -83,4 +88,4 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		controller: 'adminCtrl'
 	})
 
-})
+});
