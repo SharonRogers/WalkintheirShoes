@@ -2,11 +2,94 @@
 
 <video src="assets/graphics/mouse_click.mp4" id="bgvid" autoplay></video>
 
-<div class="usersContainer">
+<div class="adminContainer">
 	
-	<div class="adminUser" ng-repeat="user in users">
-	<p>{{ user.firstname }}</p>
-	<p>{{ user.email }}</p>
+	<div class="users">
+		
+		<div class="usersContainer">
+
+			<p class="adminTitle">Users</p>
 	
+			<div class="adminUser" ng-repeat="user in users">
+				<p>{{ user.firstname }}</p>
+				<p>{{ user.email }}</p>
+				<button>Remove</button>
+				<br>
+	
+			</div>
+
+		</div>
+
 	</div>
+
+	<div class="scenarios">
+
+		<div class="scenarioContainer">
+
+			<div class="adminAllScenarios" ng-repeat="">
+				<p>{{ scenario.title }}</p>
+				<p>{{ sceanrio.scenario }}</p>
+				
+			</div>
+
+			<div class="adminUpdateSceanrio">
+				
+			</div>
+
+			<div class="adminRemoveScenario">
+				
+			</div>
+			
+		</div>
+		
+	</div>
+
+	<div class="userStories">
+
+		<div class="userStoriesContainer">
+
+			<div class="adminAllUserStories">
+				
+			</div>
+
+			<div class="adminAddUserStories">
+				
+			</div>
+
+			<div class="adminUpdateUserStories">
+				
+			</div>
+
+			<div class="adminRemoveUserStories">
+				
+			</div>
+			
+		</div>
+		
+	</div>
+
+	<div class="test">
+		
+		<div class="testContainer">
+
+			<div class="adminAllTest">
+				
+			</div>
+
+			<div class="adminAddTest">
+				
+			</div>
+
+			<div class="adminUpdateTest">
+				
+			</div>
+
+			<div class="adminRemoveTest">
+				
+			</div>
+			
+		</div>
+		
+	</div>
+
 </div>

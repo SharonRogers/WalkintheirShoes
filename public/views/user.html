@@ -3,7 +3,6 @@
 
 <video src="assets/graphics/SilhouetteWalk.mp4" id="bgvid" autoplay></video>
 
-<p class="smallId"><span>Hi </span><span>{{ userObj.firstname }}</span></p>
 <button ui-sref="user" class="topButton">My Page</button>
 <br>
 <button class="topButton">Log Out</button>
@@ -14,20 +13,43 @@
 
 	 	<p class="userwelcome title"><span>Hello </span><span>{{ userObj.firstname }}</span><span>!</span></p>
 
-	 <div>
+	 	<br>
+
+	 <div class="userPContainer">
 	
-		<p class="userP">You have embarked on a journey of discovery of how much compassion you feel for those around you. Learn about the things you may not know lies in the secret places of their hearts and spirits. Learn how to feel more compassion and understanding even if it is different than the secrets that lie in your hearts and spirits. Read their stories, look in their eyes, put yourself in their shoes and gauge how much you care for your human beings no matter who they are or what their lives are like. Begin by signing up.</p>
+		<p class="userP">If you have signed up, you have embarked on a journey of discovery of how much compassion you feel for those around you. Learn about there lives, their hurts, the hard secrets they carry. Learn how to feel more compassion and understanding for situations and lives that may be very different from your own. You may even connect to those hard secrets that lie in your own heart. Walk through this site and experience others. Look in their eyes, put yourself in their shoes and learn how much you care for your fellow human beings no matter who they are or what their lives are like. If you are returning, welcome back. Congratulations, you care!</p>
 	</div>
 
-	 	<div class="userscenarios">
-		
-		<div ng-repeat="userStory in userObj.stories">
-				<h2>{{ userStory.title }}</h2>
-				<p>{{ userStory.scenario }}</p>
-				<img src="{{ userStory.imageId }}">
-		</div>
+	
 
-	 	
-	 </div>
+	 <div class="userSelectedContainer">
+		<div ng-repeat="story in userObj.stories" class="userSelectedChild">
+			<div>
+				<p class="userSelectedTitle">{{story.title}}</p>
+			</div>
+				
+			<div class="smallEyeContainer">
+				<img class="smallEyeImage" src="{{story.imageId}}">
+			</div>
+			
+			<div class="userSelected">
+				 <p>{{story.scenario}}</p>
+			</div>
+
+			<div>
+				<button>Click to See the Rest of the Story</button>
+			</div>
+
+			<div class="userSelected">
+				<p>{{story.resolution}}</p>
+			</div>
+
+			<div class="largeImageContainer">
+				<img class="largeImage" src="{{story.imageId}}">
+			</div>
+
+		</div>
+		
+</div>
 		
 	</div>

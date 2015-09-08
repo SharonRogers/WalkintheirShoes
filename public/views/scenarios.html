@@ -3,7 +3,6 @@
 <video class="videoOne" src="assets/graphics/Santa_Monica_Art_02.mp4" id="bgvid" autoplay></video>
 
 
-<p class="smallId"><span>Hi </span><span>{{ userObj.firstname }}</span></p>
 <button ui-sref="user" class="topButton">My Page</button>
 <br>
 <button class="topButton">Log Out</button>
@@ -13,9 +12,9 @@
 
 	<div class="repeatedContainer">
 
-		<div class="repeatedSceanarios" ng-repeat="story in scenarios">
-			<button ng-click="getSelected(story._id)"></button>
-				<h2>{{story.title}}</h2>
+		<div ng-repeat="story in scenarios">
+			<button class="repeatedScenarios" ng-click="getSelected(story._id)">{{story.title}}</button>
+				
 		</div>
 	</div>
 

@@ -16,17 +16,13 @@ module.exports = {
 	},
 
 
-	update: function(req, res) {
-		UserInfo.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
+		updateUser: function(req, res) {
+		User.findOne({ 'email' : req.body.email })
+		.exec(function(err, result) {
 			if (err) return res.status(500).send(err);
-			else res.send(result);
+			else res.send(user);
 		});
 	},
 
-	remove: function(req, res) {
-		UserInfo.findByIdAndRemove(req.params.id, req.body, function(err, result) {
-			if (err) return res.status(500).send(err);
-			else res.send(result);
-		});
-	}
+
 }

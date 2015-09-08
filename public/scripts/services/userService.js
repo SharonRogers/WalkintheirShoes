@@ -64,17 +64,20 @@ app.service('userService', function($http, $q) {
 
 	// TODO: replace endpoints for user page********
 
-	// this.updateUser = function(user) {
-	// 	var deferred = $q.defer();
+	this.updateUser = function(user) {
+		var deferred = $q.defer();
 
-	// 	$http.put('/api/signup', {user}).
-	// 	then(function(data) {
-	// 		console.log("This is PUT call for add user", data);
-	// 		var results = data.data;
-	// 		console.log(results);
-	// 	})
-	// 	return deferred.promise;
-	// };
+		$http({
+			method: 'PUT',
+			url: '/api/user/:id',
+			data: user
+		}).then(function(data) {
+			console.log("This is PUT call for add user", data);
+			var user = data.data;
+			console.log(results);
+		})
+		return deferred.promise;
+	};
 
 	// this.removeUser = function(user) {
 	// 	var deferred = $q.defer();

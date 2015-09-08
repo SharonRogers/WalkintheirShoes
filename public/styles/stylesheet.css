@@ -82,6 +82,10 @@ video {
 	margin-bottom: -20px;
 }
 
+.first {
+	margin-top: -40px;
+}
+
 .container {
 	display: flex;
 	align-items: center;
@@ -101,7 +105,7 @@ video {
 
 .homeinfo {
 	color: transparent;
-	font-size: 30px;
+	font-size: 35px;
 	vertical-align: center;
 	text-align: center;
 	float: center;
@@ -129,7 +133,7 @@ video {
 	font-size: 25px;
 	opacity: 0.3;
 	position: relative;
-	top: -250px;
+	top: -200px;
 	margin-left: 40px;
 	text-align: center;
 	vertical-align: center;
@@ -169,16 +173,25 @@ video {
 	vertical-align: center;
 	text-align: center;
 	float: center;
-	text-shadow: 0px 0px 6px #fff;
 	margin-right: 50px;
 	margin-left: 50px;
+	font: Helvetica;
 }
 	
+.userPContainer {
+	background-color: #fff;
+	opacity: 0.5;
+	float: center;
+	margin-right: 100px;
+	margin-left: 100px;
+	border-radius: 25px;
+	padding: 5px;
+}
 
 .userContainer {
 	display: flex;
 	float: center;
-	margin-top: -175px;
+	margin-top: -200px;
 }
 
 .userscenarios {
@@ -195,6 +208,59 @@ video {
 	flex-wrap: wrap;
 	justify-content: center;
 	
+}
+
+.userSelectedContainer {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 60%;
+	}
+
+.userSelectedChild {
+	margin: 0 auto;
+	height: 600px;
+	width: 300px;
+	border: 1px solid black;
+	background-color: white;
+	opacity: 0.5;
+	text-align: center;
+	padding: 5px;
+	vertical-align: center;
+	/*position: absolute;*/
+	margin-left: 40px;
+	text-transform: capitalize;
+	margin-bottom: 20px;
+}
+
+.userSelected {
+	font-size: 15px;
+	display: block;
+}
+
+.userSelectedTitle {
+	font-size: 25px;
+	text-transform: uppercase;
+}
+
+.selectedContainer:hover {
+	opacity: .8;
+}
+
+.smallEyeContainer {
+	height: 100px;
+	width: 300px;
+	overflow: hidden;
+	vertical-align: center;
+	float: center;
+	position: relative;
+}
+
+.smallEyeImage {
+	vertical-align: center;
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: fill;
 }
 
 
@@ -237,56 +303,141 @@ video {
 	font-size: 100px;
 }
 
+/*styling for About page*/
+
+.infocontainer {
+	display: inline-block;
+	margin-top: 10px;
+	margin-right: 100px;
+}
+
+.infotitle {
+	color: #fff;
+	font-size: 60px;
+	text-align: center;
+	float: center;
+	margin-top: -80px;
+
+}
+
+.infopic {
+	height: 400px;
+	width: 400px;
+	opacity: 0.7;
+	margin-left: 150px;
+	border: 2px solid #fff;
+}
+
+.infopic:hover {
+	opacity: 1;
+}
+
+.info1 {
+	color: #fff;
+	font-size: 40px;
+	vertical-align: right;
+	text-align: right;
+	float: right;
+	margin-right: 150px;
+	margin-left: 650px;
+	margin-top: -450px;
+}
+
+.info2 {
+	color: #fff;
+	font-size: 40px;
+	vertical-align: right;
+	text-align: right;
+	float: right;
+	margin-right: 150px;
+	margin-left: 150px;
+	margin-top: -15px;
+}
+
 /*Styling for Scenarios and SelectedStory*/
 
 .scenarioContainer {
 	display: flex;
-	justify-content: space-around;
+	justify-content: left;
 	flex-direction: row;
-	border: 5px red dashed;
+	margin: -100px 40px 0 40px;
 }
 
-.repeatedscenarios {
-	height: 50px;
-	width: 100px;
-	opacity: 0.5;
-	border: 10px solid black;
+.repeatedContainer {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.repeatedScenarios {
+	height: 110px;
+	width: 300px;
+	border-radius: 25px;
+	border: 1px black solid;
+	margin: 20px;
+	background-color: #fff;
+	font-size: 25px;
 	background-color: white;
 	text-align: center;
-	float: left;
-	vertical-align: left;
-/*	display: flex;
-	flex-direction: column;*/
-	margin-left: 50px;
+	opacity: 0.3;
+	text-transform: uppercase;
 }
 
-ul {
-	list-style-type: none;
+.repeatedScenarios:hover {
+	opacity: 0.8;
+}
+
+
+.selectedContainer {
+	display: flex;
+	align-items: center;
+	/*vertical*/
+	justify-content: flex-start;
+	align-content: flex-start;
+	flex-direction: column;
+	height: 1200px;
+	width: 1200px;
+	border: 1px solid black;
+	background-color: white;
+	opacity: 0.3;
+	text-align: center;
+	padding: 15px;
+	vertical-align: center;
+	position: absolute;
+	margin-left: 100px;
+	text-transform: capitalize;
 }
 
 .selected {
+	font-size: 30px;
+	display: block;
+}
+
+.selectedTitle {
+	font-size: 45px;
+	text-transform: uppercase;
+}
+
+.selectedContainer:hover {
+	opacity: .8;
+}
+
+.eyeContainer {
 	height: 250px;
-	width: 500px;
-	border: 1px solid black;
-	background-color: white;
-	opacity: 0.5;
-	text-align: center;
+	width: 70%;
+	overflow: hidden;
 	vertical-align: center;
+	float: center;
+	position: relative;
 }
 
-.repeatedimages {
-	height: 100px;
-	width: 100px;
-	opacity: 0.5;
-	border: 10px dashed blue;
-	background-color: white;
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	float: right;
-	margin-right: 50px;
+.eyeImage {
+	vertical-align: center;
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: fill;
 }
-
 
 /*styling for User Stories page*/
 
@@ -335,6 +486,49 @@ ul {
 	margin-right: 50px;
 }
 
+.submitUserFavorite {
+	height: 75px;
+	width: 400px;
+	border-radius: 25px;
+	border: 1px black solid;
+	padding: 20px;
+	background-color: #fff;
+	font-size: 25px;
+	opacity: 0.7;
+	float: center; 
+	flex-grow: 2;
+	margin-bottom: 25px;
+}
+
+/*styling for Test page*/
+
+.testContainer {
+	display: flex;
+	align-items: center;
+	height: 1200px;
+	width: 1200px;
+	border: 1px solid black;
+	background-color: white;
+	opacity: 0.5;
+	text-align: center;
+	vertical-align: center;
+	position: absolute;
+	margin-left: 100px;
+	text-transform: capitalize;
+}
+
+.questionContainer {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	border: 10px black solid;
+}
+
+
+.testcontainer:hover {
+	opacity: 1;
+}
+
 /*styling for Share page*/
 
 .sharebuttonbar {
@@ -342,6 +536,23 @@ ul {
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
+}
+
+.sharetitle {
+	color: #fff;
+	font-size: 60px;
+	text-align: center;
+	float: center;
+	margin-top: -80px;
+	margin-bottom: -20px;
+
+}
+
+.shareinfo {
+	color: #fff;
+	font-size: 35px;
+	text-align: center;
+	float: center;
 }
 
 .sharestory {
@@ -394,5 +605,41 @@ ul {
 	text-transform: uppercase;
 }
 
+.shareBreak {
+	display: block;
+	border-style: inset;
+	border-radius: 10px;
+	color: #fff;
+	border-width: 10px;
+	margin-bottom: 20px;
+
+}
+
 /*styling for Admin page*/
 
+.adminTitle {
+	font-size: 25px;
+	text-decoration: underline;
+}
+
+.adminContainer {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 60%;
+}
+
+.usersContainer {
+	margin: 0 auto;
+	height: 600px;
+	width: 300px;
+	border: 1px solid black;
+	background-color: white;
+	opacity: 0.5;
+	text-align: center;
+	padding: 5px;
+	vertical-align: center;
+	margin-left: 40px;
+	text-transform: capitalize;
+	margin-bottom: 20px;
+}

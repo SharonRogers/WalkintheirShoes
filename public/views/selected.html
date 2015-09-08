@@ -1,10 +1,17 @@
 <!-- This is the view for the nested view for the Scenario page -->
 
-<div class="selected">
-	<ul>
-		<li>{{scenario.title}}</li>
-		<li>{{scenario.scenario}}</li>
-		<img src="{{scenario.imageId}}">
-	</ul>
+<div class="selectedContainer">
+	
+		<div>
+			<p class="selectedTitle">{{scenario.title}}</p>
+		</div>
+			
+		<div class="eyeContainer">
+			<img class="eyeImage" src="{{scenario.imageId}}">
+		</div>
+		
+		<div class="selected">
+			 <p>{{scenario.scenario}}</p>
+		</div>
+		
 </div>
-

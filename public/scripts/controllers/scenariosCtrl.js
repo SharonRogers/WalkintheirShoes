@@ -23,9 +23,9 @@ app.controller('scenariosCtrl', function($scope, $stateParams, $state, scenarios
 			$scope.scenario = response[0];
 			console.log("asdfasdfsafsdfaksdhflkasjdfkl;jasd;flkj", $scope.scenario)
 			$state.go('scenarios.selected', {selectedPerson: $scope.scenario.title});
-			// scenariosService.addFollower(id).then(function(response) {
-			// 	console.log(response);
-			// });
+			scenariosService.addFollower(id).then(function(response) {
+				console.log(response);
+			});
 		});
 	
 			

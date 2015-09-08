@@ -11,6 +11,9 @@ app.controller('userCtrl', function($scope, userService, currentUser) {
 	// $scope.getUser();
 
 	$scope.userObj = currentUser;
+	
 	console.log(currentUser);
+
+	
 
 });

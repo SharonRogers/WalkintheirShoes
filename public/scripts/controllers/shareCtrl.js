@@ -11,7 +11,8 @@ app.controller('shareCtrl', function($scope, scenariosService, $rootScope) {
 			title: title,
 			scenario: scenario,
 			resolution: resolution,
-			imageId: $scope.imageLink
+			imageId: $scope.imageLink,
+			eyeId: $scope.imageLink
 		}
 		console.log($scope.imageLink)
 		scenariosService.addScenarios(scenarioShared).then(function(results) {

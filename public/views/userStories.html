@@ -2,7 +2,6 @@
 
 <video src="assets/graphics/feet.mp4" id="bgvid" autoplay></video>
 
-<p class="smallId"><span>Hi </span><span>{{ userObj.firstname }}</span></p>
 <button ui-sref="user" class="topButton">My Page</button>
 <br>
 <button class="topButton">Log Out</button>
@@ -31,6 +30,20 @@
 
 		</div>
 
+	</div>
+
+	<div class="sharebuttonbar">
+
+		<input class="submitUserFavorite" ng-model="favFamily" placeholder="ENTER THE NAME OF YOUR FAVORITE FAMILY MEMBER">
+
+		<input class="submitUserFavorite" ng-model="favFood" placeholder="ENTER YOUR FAVORITE FOOD">
+
+		<input class="submitUserFavorite" ng-model="favFear" placeholder="ENTER YOUR GREATEST FEAR">
+
+		<input class="submitUserFavorite" ng-model="favPlace" placeholder="ENTER A NAME FOR THE FAVORITE PLACE YOU HAVE LIVED">
+
+		<button class="submitstory" ng-click="addUserFavorites(favFamily, favFood, favFear, favPlace)">SUBMIT</button>
+		
 	</div>
 	
 </div>

@@ -98,9 +98,10 @@ app.get('/logout', function(req, res) {
 app.post ('/api/signup', signupCtrl.create);
 
 
+
 // *************USER VIEW****************
-// app.put ('/api/signup/:id', loginCtrl.update);
-// app.delete ('/api/signup/:id', loginCtrl.remove);
+app.put('/api/user/:id', userCtrl.updateUser);
+
 // app.get('/api/user', userCtrl.userScenarios);
 
 
@@ -130,6 +131,7 @@ app.post('./api/shareyourstory', shareCtrl.createProblem);
 
  // *************ADMIN PAGE***************
 app.get('/api/getAllUsers', adminCtrl.getAllUsers);
+app.delete('/api/user/:id', adminCtrl.removeUser);
 
 app.get ('/api/getAllScenarios', adminCtrl.readScenarios);
 app.put ('/api/updateScenarios/:scenarioid', adminCtrl.updateScenarios);

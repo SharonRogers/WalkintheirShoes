@@ -17,6 +17,14 @@ module.exports = {
 		})
 	},
 
+	removeUser: function(req, res) {
+		User.findOne({ 'email' : req.body.email })
+		.exec(function(err, result) {
+			if (err) return res.status(500).send(err);
+			else delete(user);
+		});
+	},
+
 // *****THESE METHODS ARE TO FIND THEN UPDATE OR REMOVE SCENARIOS FROM THE DATABASE********
 
 	readScenarios: function(req, res) {

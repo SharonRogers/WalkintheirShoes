@@ -1,9 +1,8 @@
 <!-- This is the view for the Shar Your Story page which adds a story including an image and also adds a problem -->
 
 
-<video src="assets/graphics/HandStroking.mp4" id="bgvid" autoplay></video>
+<video class="videoOne" src="assets/graphics/HandStroking.mp4" id="bgvid" autoplay></video>
 
-<p class="smallId"><span>Hi </span><span>{{ userObj.firstname }}</span></p>
 <button ui-sref="user" class="topButton">My Page</button>
 <br>
 <button class="topButton">Log Out</button>
@@ -12,17 +11,22 @@
 
 	<div>
 		<div class="sharebuttonbar">
-			<p class="homeinfotitle">Share your story</p>
-			<input class="submitstoryimage" class-"firstname" ng-model="title" placeholder="FIRST NAME">
+			<p class="sharetitle">Share your story with us!</p>
+			<p class="shareinfo">Please keep names anonymous and situations true but not graphic. This protects thie site and you as well.</p>
+			<input class="submitstoryimage" class-"firstname" ng-model="title" placeholder="FIRST NAME ONLY">
 			<input class="sharestory" ng-model="scenario" placeholder="SHARE YOUR LIFE EXPERIENCE">
-			<input class="sharestory" ng-model="resolution" placeholder="SHARE THE REST OF THE STORY">
+			<input class="sharestory" ng-model="resolution" placeholder="SHARE THE REST OF THE STORY OR HOPE YOU FOUND">
+			<P class="shareinfo">Not required but if you would like, submit an image to accompany your story. Please crop to the eyes only for anonymity.</P>
+			<input type="file" images="images" accept="image/*" class="submitstoryimage" ng-model="eyeId" placeholder="UPLOAD CLOSE UP IMAGE" placeholder="SUBMIT A CLOSEUP IMAGE"fileread>
+			<p class="shareinfo">You may also submit a larger image of the hope you found in your life</p>
 			<input  type="file" images="images" accept="image/*" class="submitstoryimage" ng-model="imageId" placeholder="UPLOAD IMAGE" fileread>
 			<button class="submitstory" ng-click="addScenario(title, scenario, resolution, imageId)">SUBMIT STORY</button>
 		</div>
 		
-		<br>
+		<hr class="shareBreak">
 
 		<div class="sharebuttonbar">
+			<p class="shareinfo">If you have heard a comment that was hurtful or not helpful, please share that as well.</p>
 			<input class="submitstoryimage" placeholder="DROPDOWN OF SUBJECTS">
 			<input class="sharestory" placeholder="COMMENT">
 			<input class="sharestory" placeholder="HOW IT FELT">
