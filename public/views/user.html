@@ -11,7 +11,7 @@
 
 	<div>	
 
-	 	<p class="userwelcome title"><span>Hello </span><span>{{ userObj.firstname }}</span><span>!</span></p>
+	 	<p class="userwelcome title"><span>Hello </span><span class="username">{{ userObj.firstname }}</span><span>!</span></p>
 
 	 	<br>
 
@@ -29,7 +29,7 @@
 			</div>
 				
 			<div class="smallEyeContainer">
-				<img class="smallEyeImage" src="{{story.imageId}}">
+				<img class="smallEyeImage" src="{{story.eyeId}}">
 			</div>
 			
 			<div class="userSelected">
@@ -37,14 +37,14 @@
 			</div>
 
 			<div>
-				<button>Click to See the Rest of the Story</button>
+				<button ng-click="restStory=!restStory">Click to See the Rest of the Story</button>
 			</div>
 
-			<div class="userSelected">
+			<div class="userSelected" ng-show="restStory">
 				<p>{{story.resolution}}</p>
 			</div>
 
-			<div class="largeImageContainer">
+			<div class="largeImageContainer" ng-show="restStory">
 				<img class="largeImage" src="{{story.imageId}}">
 			</div>
 

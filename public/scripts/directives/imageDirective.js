@@ -15,7 +15,11 @@ app.directive('fileread', function (imagesService) {
 
           imagesService.storeImage(fileread, fileName)
           .then(function (result) {
-            scope.imageLink = result.data.Location
+            if (attrs.id === "eye") {
+              scope.eyeId = result.data.Location;
+            } else {
+            scope.imageId = result.data.Location;
+          }
             console.log(result.data)
             scope.images.unshift(result.data);
           }).catch(function (err) {

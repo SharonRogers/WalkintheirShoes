@@ -43,7 +43,7 @@ app.service('scenariosService', function($http, $q) {
 
 	this.addFollower = function(newSelectedId) {
 		var deferred = $q.defer()
-		console.log('in the service')
+		console.log('in the service', newSelectedId)
 		
 		$http({
 			method: 'PUT',

@@ -17,10 +17,10 @@
 			<input class="sharestory" ng-model="scenario" placeholder="SHARE YOUR LIFE EXPERIENCE">
 			<input class="sharestory" ng-model="resolution" placeholder="SHARE THE REST OF THE STORY OR HOPE YOU FOUND">
 			<P class="shareinfo">Not required but if you would like, submit an image to accompany your story. Please crop to the eyes only for anonymity.</P>
-			<input type="file" images="images" accept="image/*" class="submitstoryimage" ng-model="eyeId" placeholder="UPLOAD CLOSE UP IMAGE" placeholder="SUBMIT A CLOSEUP IMAGE"fileread>
+			<input type="file" id="eye" images="images" accept="image/*" class="submitstoryimage" ng-model="eyeId" placeholder="UPLOAD CLOSE UP IMAGE" placeholder="SUBMIT A CLOSEUP IMAGE"fileread>
 			<p class="shareinfo">You may also submit a larger image of the hope you found in your life</p>
-			<input  type="file" images="images" accept="image/*" class="submitstoryimage" ng-model="imageId" placeholder="UPLOAD IMAGE" fileread>
-			<button class="submitstory" ng-click="addScenario(title, scenario, resolution, imageId)">SUBMIT STORY</button>
+			<input  type="file" if="other" images="images" accept="image/*" class="submitstoryimage" ng-model="imageId" placeholder="UPLOAD IMAGE" fileread>
+			<button class="submitstory" ng-click="addScenario(title, scenario, resolution, eyeId, imageId)">SUBMIT STORY</button>
 		</div>
 		
 		<hr class="shareBreak">
